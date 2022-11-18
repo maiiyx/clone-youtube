@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #ddd;
+}
+
+header, section{
+    padding: 5rem;
+}
+
+header{
+    background-color: red;
+}
+
+main{
+    /* DEFINE A LARGURA MÁXIMA DOS ELEMENTOS EM TELA */
+    max-width: 1200px;
+
+    /* CENTRALIZAR CONTEÚDO */
+    margin: auto;
+
+    /* HABILITANDO O GRID */
+    display: grid;
+
+    /* ESPAÇO ENTRE CADA GRID */
+    grid-row-gap: 1rem;
+
+    /* HABILITA AS AREAS QUE SERÃO POSICIONADAS */
+    grid-template-areas: 
+    'video-player  video-player'
+    'video-info    video-info'
+    'actions       actions'
+    'channel       subscribe'
+    'up-next       up-next'
+    ;
+}
+
+.video-player{
+    background-color: orange;
+    grid-area: video-player;
+}
+
+.video-info{
+    background-color: yellow;
+    grid-area: video-info;
+}
+
+.actions{
+    background-color: green;
+    grid-area: actions;
+}
+
+.channel{
+    background-color: blue;
+    grid-area: channel;
+}
+
+.subscribe{
+    background-color: purple;
+    grid-area: subscribe;
+}
+
+.ad{
+    background-color: pink;
+    grid-area: ad;
+    /* ESCONDER ANÚNCIO */
+    /* display: none; */
+}
+
+.up-next{
+    background-color: cyan;
+    grid-area: up-next;
+}
+/* APLICANDO RESPONSIVIDADE */
+
+/* APLICANDO O CONCEITO DO MOBILE FIRST */
+
+@media screen and (max-width:700px){
+    .ad{
+        display: none;
+    }
+}
+
+@media screen and (min-width:700px){
+    header{
+        grid-template-columns: auto auto auto;
+    }
+    
+    main{
+        max-width: 1200px;
+        grid-template-areas:
+
+        'video-player  video-player  ad'
+        'video-player  video-player  up-next'
+        'video-info    actions       up-next'
+        'channel       subscribe     up-next'
+        ;
+    }
+
+}
